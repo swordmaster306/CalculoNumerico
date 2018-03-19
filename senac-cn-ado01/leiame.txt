@@ -1,0 +1,45 @@
+﻿Criado por Alex Shun Yamazaki
+
+Algoritmo de conversão de número de base N para base M:
+
+O algoritmo foi dividido em duas partes principais:
+- Validação das entradas(fornecidas pelo terminal)
+- Conversão do número(que foi devidamente validado)
+
+
+Validação:
+
+
+- O usuário fornece TRÊS argumentos ao programa, via linha de comando:
+    - NÚMERO A SER CONVERTIDO (1)
+    - BASE DO NÚMERO (2)
+    - BASE ALVO (3)
+- O algoritmo verifica na função main se:
+    - O número de argumentos está correto, ou seja , se é igual a 4, 4 pois a variável argc de leitura de argumentos 
+      via linha de comando coloca na posição [0], o nome do executável.
+
+
+	
+    - Realiza a validação dos dados de entrada, atributo a atributo.
+	-Validando o numero de entrada:
+		-Primeiro valida-se se o numero está dentro do intervalo '0-9';'a-z';'A-Z';'-'(sinal de negativo)  da tabela ASCII;
+		-A validação verifica se o sinal de negativo, caso apareça, aparece apenas uma vez e no começo da sequência de caractéres;
+		-Verifica se o número tem letras, e qual é a maior letra(transforma minusculas em maisculas, caso apareçam), em termos de ordem alfabetica, para validar se o numero e a base 
+		 de entrada são compatíveis.
+	-Validando a base de entrada e saida:
+		-Verifica se a base esta dentro do intervalo de caractéres 0-9 da tabela ASCII
+		-Verifica se a base é maior que 0 e menor ou igual a 36	
+		-Verifica se a base inserida(maior que 10) comporta os caracteres do numero(caso contenha letras)
+		-Verifica se a base inserida(menor ou igual a 10) comporta os caracteres do numero
+
+- Caso a validação retorne true em seu primeiro indice( o segundo diz se o número tem ou não letras), o número é convertido.
+
+	-Calculo do numero na base N para base 10:
+		- O algoritmo realiza um loop, onde os caractéres do número de entrada são convertidos para o tipo inteiro, e após isso são multiplicados pela base elevada a quantidade 
+		  de dígitos do numero, ou seja, o numero 1234 na base 5, no momento da conversão fica como: 1*10^3 + 2*10^2 + 3*10^1 + 4*10^0
+	-Calculo do numero na base 10 para base M:
+    		- O algoritmo divide o numero na base 10 pela base M e armazena os restos em uma pilha, após a primeira divisão, divide-se o quociente pela base e assim adiante,
+		até o quociente ser menor que a base, e nesse momento armazenamos o quociente(apenas um quociente é armazenado, o último no caso).
+-Para mostrar o número resultante, apenas percorre-se a pilha, já que a mesma segue a lógica LIFO.
+    
+ 
