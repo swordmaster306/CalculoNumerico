@@ -76,12 +76,12 @@ bool *  validarEntrada(char numero[],char base_entrada[], char base_saida[]){
 
         if(i == 0){
             if (!(temp == 45 || (temp>=48 && temp<=57) || (temp>=65 && temp<=90) || (temp>=97 && temp<=122))){
-                printf("Numero invalido!\n");
+                //printf("Numero invalido!\n");
                 return resposta;
             }
         }else{
             if (!((temp>=48 && temp<=57) || (temp>=65 && temp<=90) || (temp>=97 && temp<=122))){
-                printf("Numero invalido!\n");
+                //printf("Numero invalido!\n");
                 return resposta;
             }
         }
@@ -112,13 +112,13 @@ bool *  validarEntrada(char numero[],char base_entrada[], char base_saida[]){
     for(int i = 0 ; i < len_bEntrada; i++){
         int temp = (int) base_entrada[i];
         if (!((temp>=48 && temp<=57) )){
-            printf("Base entrada invalida!\n");
+            //printf("Base entrada invalida!\n");
             return resposta;
         }
     }
     int base_entrada_convertida = atoi(base_entrada);
     if(base_entrada_convertida<2 || base_entrada_convertida>36){
-        printf("Base de entrada fora do intervalo 0<BASE<37\n");
+        //printf("Base de entrada fora do intervalo 0<BASE<37\n");
         return resposta;
     }
 
@@ -127,19 +127,19 @@ bool *  validarEntrada(char numero[],char base_entrada[], char base_saida[]){
     for(int i = 0 ; i < len_bSaida ; i++){
         int temp = (int) base_saida[i];
         if (!((temp>=48 && temp<=57))){
-            printf("Base saida invalida!\n");
+            //printf("Base saida invalida!\n");
             return resposta;
         }
     }
     int base_saida_convertida = atoi(base_saida);
     if(base_saida_convertida<2 || base_saida_convertida>36){
-        printf("Base de saida fora do intervalo 0<BASE<37\n");
+        //printf("Base de saida fora do intervalo 0<BASE<37\n");
         return resposta;
     }
 
     if(numero_tem_letra == true){
         if(!(index_alfabeto <= (atoi(base_entrada)-10))){
-            printf("(Acima de 10) Numero e base de entrada incompativeis!\n");
+            //printf("(Acima de 10) Numero e base de entrada incompativeis!\n");
             return resposta;
         }
     }else{
@@ -149,7 +149,7 @@ bool *  validarEntrada(char numero[],char base_entrada[], char base_saida[]){
         for(int i = 0 ; i < tamanho_numero ; i++){
             temp = numero[i] -48;
             if(temp >= base){
-                printf("(Abaixo ou igual a 10) Numero e base de entrada incompativeis!\n");
+                //printf("(Abaixo ou igual a 10) Numero e base de entrada incompativeis!\n");
                 return resposta;
             }
         }
