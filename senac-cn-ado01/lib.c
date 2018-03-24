@@ -2,36 +2,38 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-
-int potencia(int n, int potencia){
-
-    int resultado = 1;
-
-    for(int i = 0 ; i < potencia ; i++){
-        resultado *=n;
-    }
-
-    return resultado;
-}
+#include <stdint.h>
 
 
-bool pilhaVazia(Celula * pilha){
-    if(pilha == NULL){
-        return true;
-    }else{
-        return false;
-    }
-}
+        int potencia(int n, int potencia){
 
-void inserirNaPilha(Celula **pilha, char c){
-    Celula *novo;
-    if(pilhaVazia(*pilha) == true){
-        novo = malloc(sizeof(Celula));
-        *pilha = novo;
-        novo->digito = c;
-        novo->prox = NULL;
-    }else{
-        novo = malloc(sizeof(Celula));
+            int resultado = 1;
+
+            for(int i = 0 ; i < potencia ; i++){
+                resultado *=n;
+            }
+
+            return resultado;
+        }
+
+
+        bool pilhaVazia(Celula * pilha){
+            if(pilha == NULL){
+                return true;
+            }else{
+                return false;
+            }
+        }
+
+        void inserirNaPilha(Celula **pilha, char c){
+            Celula *novo;
+            if(pilhaVazia(*pilha) == true){
+                novo = malloc(sizeof(Celula));
+                *pilha = novo;
+                novo->digito = c;
+                novo->prox = NULL;
+            }else{
+                novo = malloc(sizeof(Celula));
         novo->digito = c;
         novo->prox = *pilha;
         *pilha = novo;
@@ -66,7 +68,11 @@ bool *  validarEntrada(char numero[],char base_entrada[], char base_saida[]){
     bool numero_tem_letra = false;
     int num_maior_maiusculo = 0;
     int num_maior_minusculo = 0;
-
+    int64_t num = atoi(numero);
+    printf("Tamanho %d\n", sizeof(num));
+    if(num < -4294967295 || num > 4294967295 ){
+        return resposta;
+    }
     int index_alfabeto;
 
 
@@ -172,7 +178,7 @@ int verificarNumero(char c){
 
 
 int converterParaBase10(char numero[],int base_entrada){
-    int numero_convertido = 0;
+    unsigned long numero_convertido = 0;
     int expoente;
     int tamanho_string = strlen(numero);
 
@@ -182,7 +188,6 @@ int converterParaBase10(char numero[],int base_entrada){
             numero_convertido += verificarNumero(numero[i]) *potencia(base_entrada,expoente);
             expoente--;
         }
-        numero_convertido *= -1;
     }else{
         expoente = tamanho_string -1 ;
         for(int i = 0 ; i < tamanho_string ; i++){
@@ -190,7 +195,7 @@ int converterParaBase10(char numero[],int base_entrada){
             expoente--;
         }
     }
-    //printf("%d \n",numero_convertido);
+    printf("%lu \n",numero_convertido);
     return numero_convertido;
 }
 
@@ -203,14 +208,9 @@ char verificarNumero2(int n){
 }
 
 
-void converterParaBaseM(int numero, int base_saida){
+void converterParaBaseM(unsigned long numero, int base_saida,bool negativo){
     Celula *pilha = NULL;
     int quociente, resto;
-    bool negativo = false;
-    if(numero < 0 ){
-        negativo = true;
-    }
-    numero = abs(numero);
     do{
         quociente = numero/base_saida;
         resto = numero % base_saida;
@@ -218,7 +218,7 @@ void converterParaBaseM(int numero, int base_saida){
         inserirNaPilha(&pilha,verificarNumero2(resto));
 
         numero = quociente;
-        if(numero < base_saida)
+        if(numero <(unsigned long)base_saida)
             inserirNaPilha(&pilha,verificarNumero2(numero));
     }
     while(base_saida <= quociente);

@@ -23,7 +23,7 @@ bool *  validarEntrada(char numero[],char base_entrada[], char base_saida[]);
 
 int converterParaBase10(char numero[],int base_entrada);
 
-void converterParaBaseM(int numero, int base_saida);
+void converterParaBaseM(unsigned long numero, int base_saida,bool negativo);
 
 
 #endif // LIB_H_

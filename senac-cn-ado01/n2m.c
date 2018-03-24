@@ -8,6 +8,7 @@ int main(int argc, char *argv[]){
     bool *resposta;
     int base_entrada;
     int base_saida;
+    bool negativo = false;
 
     if(argc < 4){
         //printf("Voce nao forneceu argumentos suficientes!\n");
@@ -21,7 +22,10 @@ int main(int argc, char *argv[]){
             //printf("Bases validas\n");
             base_entrada = atoi(argv[2]);
             base_saida = atoi(argv[3]);
-            converterParaBaseM(converterParaBase10(argv[1], base_entrada), base_saida);
+            if(argv[1][0] == 45){
+                negativo = true;
+            }
+            converterParaBaseM(converterParaBase10(argv[1], base_entrada), base_saida,negativo);
         }else{
             //printf("Voce forneceu argumentos invalido(s)!\n");
             return 1;
