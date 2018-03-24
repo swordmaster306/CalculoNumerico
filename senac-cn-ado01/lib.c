@@ -2,12 +2,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <stdint.h>
+#include <limits.h>
 
 
-        int potencia(int n, int potencia){
+        unsigned long long  potencia(int n, int potencia){
 
-            int resultado = 1;
+            unsigned long long resultado = 1;
 
             for(int i = 0 ; i < potencia ; i++){
                 resultado *=n;
@@ -68,13 +68,7 @@ bool *  validarEntrada(char numero[],char base_entrada[], char base_saida[]){
     bool numero_tem_letra = false;
     int num_maior_maiusculo = 0;
     int num_maior_minusculo = 0;
-    int64_t num = atoi(numero);
-    printf("Tamanho %d\n", sizeof(num));
-    if(num < -4294967295 || num > 4294967295 ){
-        return resposta;
-    }
     int index_alfabeto;
-
 
     int len_numero = strlen(numero);
     for(int i = 0 ; i < len_numero; i++){
@@ -177,25 +171,25 @@ int verificarNumero(char c){
 }
 
 
-int converterParaBase10(char numero[],int base_entrada){
-    unsigned long numero_convertido = 0;
+unsigned long long converterParaBase10(char numero[],int base_entrada){
+    unsigned long long numero_convertido = 0;
     int expoente;
     int tamanho_string = strlen(numero);
 
     if(numero[0] == 45){
         expoente = tamanho_string - 2 ;
         for(int i = 1 ; i < tamanho_string ; i++){
-            numero_convertido += verificarNumero(numero[i]) *potencia(base_entrada,expoente);
+            numero_convertido += verificarNumero(numero[i]) * potencia(base_entrada,expoente);
             expoente--;
         }
     }else{
         expoente = tamanho_string -1 ;
         for(int i = 0 ; i < tamanho_string ; i++){
-            numero_convertido += verificarNumero(numero[i]) *potencia(base_entrada,expoente);
+            numero_convertido += verificarNumero(numero[i]) * potencia(base_entrada,expoente);
             expoente--;
         }
     }
-    printf("%lu \n",numero_convertido);
+
     return numero_convertido;
 }
 
@@ -208,7 +202,7 @@ char verificarNumero2(int n){
 }
 
 
-void converterParaBaseM(unsigned long numero, int base_saida,bool negativo){
+void converterParaBaseM(unsigned long long numero, int base_saida,bool negativo){
     Celula *pilha = NULL;
     int quociente, resto;
     do{

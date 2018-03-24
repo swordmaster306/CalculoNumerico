@@ -5,6 +5,7 @@
 
 int main(int argc, char *argv[]){
 
+    unsigned long long int numero;
     bool *resposta;
     int base_entrada;
     int base_saida;
@@ -25,7 +26,11 @@ int main(int argc, char *argv[]){
             if(argv[1][0] == 45){
                 negativo = true;
             }
-            converterParaBaseM(converterParaBase10(argv[1], base_entrada), base_saida,negativo);
+            numero = converterParaBase10(argv[1], base_entrada);
+            if(numero  > 4294967295){
+                return 1;
+            }
+            converterParaBaseM(numero, base_saida,negativo);
         }else{
             //printf("Voce forneceu argumentos invalido(s)!\n");
             return 1;
