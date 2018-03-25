@@ -1,0 +1,30 @@
+Alex Shun Yamazaki - BCC 5o Semestre Calculo Numerico
+(evitei usar acentos para evitar problemas de encoding)
+
+O algoritmo que desenvolvi para calcular o seno e o cosseno do zero, utiliza uma serie baseada na Serie de Taylor, onde a partir de uma precisao e um incremento pre-definidos, o seno ou o cosseno sao calculados.
+As series utilizadas no cosseno/seno sao as seguintes:
+Dado um angulo em radianos, o cosseno/seno sao calculados a partir da soma de varios termos calculados a partir de um termo anterior, onde o sinal de cada termo consecutivo eh intercalado entre positivo e negativo.
+Mostrando de uma forma mais simples:
+
+cos(x) = 1 - x²/2! + x⁴/4! - x⁶/6! + ...
+
+sen(x) = x - x³/3! + x⁵/5! - x⁷/7! + x⁹/9! - ...
+
+Note que a potencia dos expoentes aumenta sempre de dois em dois e o fatorial tambem, entao podemos aproveitar calculos para calcular o proximo fatorial, ou seja, no caso do seno, por exemplo, quando formos calcular 9! vamos apenas calcular 9*8 e multiplicar pelo que ja tinhamos antes, ou seja, 7!, e a mesma coisa se aplica ao expoente.
+
+Utilizei uma precisao de 40, com um incremento de 2,ou seja, as series tem 20 termos.
+
+Quanto a funcao main, basicamente, defino as variaveis que irao segurar:
+-Angulo convertido(de graus para radianos, onde criei uma funcao para isso)
+-Seno e cosseno das minhas funcoes
+-Seno e cosseno do math.h
+-Grau inicial, que e 0
+-Grau final, que e 720
+-Tres apontadores para arquivo, onde dois sao para a saida dos calculos de seno e cosseno, juntamente com erro absoluto e relativo, e um para enviar comandos para o gnuplot gerar os graficos dos senos e cossenos obtidos nas minhas respectivas funcoes.
+
+Apos gerar o .dat, fecho o fluxo dos mesmos e envio-os como parametros para o gnuplot gerar meus graficos.
+
+
+
+
+
