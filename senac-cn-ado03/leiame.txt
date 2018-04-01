@@ -1,0 +1,15 @@
+Feito por Alex Shun Yamazaki
+
+Geracao de numero de Euler utilizando float, double e long double:
+
+O objetivo desta atividade foi calcular o numero de Euler, utilizando os tres tipos de dados do titulo.E apos isso gerar 3 graficos, para compararmos o nivel de precisao de cada um.
+
+O programa consiste basicamente em um loop, que rodara entre os valores 1(10⁰) até 10^20, e fara o seguinte calculo com os tres tipos citados:
+	(1 + (1/n))^n , tal que n é um valor entre 1(10⁰) e 10^20
+O programa realiza um incremento proporcional nos valores de n, de tal forma que o programa consiga mostrar de forma eficiente o comportamento dos tipos de dados, como tambem rodar em um tempo razoavel.
+O incremento segue a seguinte logica:
+	Quando n < 10, o incremento sera de 1, ate que n atinja 10.
+	Quando n < 100, o incremento sera de 10, ate que n atinja 100.
+	Quando n < 1000, o incremento sera de 100,ate que n atinja,1000.
+	E assim adiante.
+A medida que os dados sao gerados, seus valores sao guardados em um arquivo temporario, que depois de gerado, e utilizado para gerar os graficos.
