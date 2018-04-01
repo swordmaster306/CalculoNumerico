@@ -18,9 +18,9 @@ void euler(){
     //Lista_Float *lista = malloc(sizeof(Lista_Float));
      fprintf(data,"Index\tFloat\tDouble\tLong Double:\t\n");
     while(counter <= MAX){
-        temp1 = pow(1.0+(1.0/counter),counter);
+        temp1 = powf(1.0+(1.0/counter),counter);
         temp2 = pow(1.0+(1.0/counter),counter);
-        temp3 = pow(1.0+(1.0/counter),counter);
+        temp3 = powl(1.0+(1.0/counter),counter);
         fprintf(data,"%Lf\t%f\t%lf\t%Lf\n",counter,temp1,temp2,temp3);
         printf("%Lf\t%f\t%lf\t%Lf\n",counter,temp1,temp2,temp3);
         if(counter == controleDeEscala){
