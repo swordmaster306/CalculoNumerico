@@ -1,9 +1,9 @@
-program hello
+program raiz_bissec
 	implicit none
 
 	real :: entrada,limite_inferior,limite_superior,temp,precisao
 
-	entrada = 9
+	entrada = 0
 	limite_inferior = 0.0
 	limite_superior = entrada
 	precisao = 0.00001
@@ -21,4 +21,4 @@ program hello
 	end do
 
 	print * ,"Raiz de ",entrada,"equivale a",limite_superior," ",limite_inferior
-end program hello
+end program raiz_bissec
