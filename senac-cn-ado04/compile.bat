@@ -1,1 +1,0 @@
-gfortran bissec.f95 -o bissec & bissec

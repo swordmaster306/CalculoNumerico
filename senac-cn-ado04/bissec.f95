@@ -1,9 +1,15 @@
 program raiz_bissec
 	implicit none
 
-	real :: entrada,limite_inferior,limite_superior,temp,precisao
+	real :: entrada,limite_inferior,limite_superior,temp,precisao,argumento,convertido
+	integer :: num_exato
+	character(len=100) :: arg
+ 	call getarg(1,arg)
+ 	read (arg,*) argumento
+ 	!print *, argumento
 
-	entrada = 0
+
+	entrada = argumento
 	limite_inferior = 0.0
 	limite_superior = entrada
 	precisao = 0.00001
@@ -20,5 +26,15 @@ program raiz_bissec
 
 	end do
 
-	print * ,"Raiz de ",entrada,"equivale a",limite_superior," ",limite_inferior
+	!print * ,"Raiz de ",entrada,"equivale a",limite_superior," ",limite_inferior
+
+	convertido = nint(limite_superior)
+
+	if(abs(limite_superior-convertido) < 0.0001) then
+		num_exato = int (convertido)
+		write(*, fmt="(i0)", advance="no")  num_exato
+	else
+		write(*, fmt="(f6.3)", advance="no")  limite_superior
+	end if
+
 end program raiz_bissec

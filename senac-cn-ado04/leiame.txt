@@ -1,0 +1,12 @@
+Atividade 4 de Cálculo Numérico
+Programas desenvolvidos por Alex Shun Yamazaki BCC
+
+Objetivo: Criar três programas com FORTRAN para calcular a raiz de um determinado número, utilizando o método da bissecção, Newton-Raphson e Secante.
+
+O método da bissecção considera o intervalo inicial [1,numero inserido sem raiz], e "corta" o intervalo ao meio a cada iteração até o valor próximo da raiz ser atingido.
+
+O método de Newton-Raphson, utiliza a propriedade da reta tangente para diminuir o intervalo inicial [1,numero inserido sem raiz] e calcular uma aproximação para a raiz. (Utiliza derivada e para construir o programa considerei a função f(x)= x^2 - [numeroInserido]  e f'(x) = 2x))
+
+O método da Secante é uma variação do método de Newton-Raphson, porém não necessita da derivada. O prejuízo disso é uma convergência mais lenta.
+
+Conclusões: O método de Newton-Raphson tende a ser o mais rápido juntamente com o da secante, e o da bissecção demora muito mais para numeros maiores.
