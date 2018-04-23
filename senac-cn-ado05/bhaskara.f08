@@ -27,20 +27,35 @@ subroutine calcular_raizes(a,b,c,delta)
 	real, intent(in) :: a,b,c,delta
 	real :: x1,x2
 	if (delta < 0 ) then
+
 		x1 = (b*-1)/(2*a) ! parte real
 		!Print *, "Raiz de delta:",delta," 2vezes a:",2*a
-		x2 = (SQRT(delta))/(2*a) !parte imaginaria
+		x2 = (SQRT(delta*-1))/(2*a) !parte imaginaria
+		write(*, fmt='(A5)',advance="no") "r1 = "
+		write(*, fmt="(f6.3)", advance="no")  x1
+		write(*, fmt='(A3)',advance="no") " + "
+		write(*, fmt="(f6.3)", advance="no")  x2
+		write(*, fmt='(A1)',advance="yes") "i"
+
+		write(*, fmt='(A5)',advance="no") "r2 = "
+		write(*, fmt="(f6.3)", advance="no")  x1
+		write(*, fmt='(A3)',advance="no") " - "
+		write(*, fmt="(f6.3)", advance="no")  x2
+		write(*, fmt='(A1)',advance="no") "i"
 		!Print * ,"Delta menor que zsero raiz x1: ",x1,"+",x2,"i","   x2: ",x1,"-",x2,"i"
 	else if ( delta == 0) then
 		x1 = (b*-1)/(2*a)
 		!Print *, "Raiz real: ",x1
+		write(*, fmt='(A5)',advance="no") "r1 = "
 		write(*, fmt="(f6.3)", advance="no")  x1
 	else 
 		x1 = ((b*-1)+(SQRT(delta)))/(2*a)
 		x2 = ((b*-1)+(-1*SQRT(delta)))/(2*a)
 		!Print *, "Delta maior que zero raizes x1:",x1, " x2:",x2
-		write(*, fmt="",advance="no") "r1"
-		write(*, fmt="(f6.3 f6.3)", advance="no")  x1,x2
+		write(*, fmt='(A5)',advance="no") "r1 = "
+		write(*, fmt="(f6.3)", advance="yes")  x1
+		write(*, fmt='(A5)',advance="no") "r2 = "
+		write(*, fmt="(f6.3)", advance="no")  x2
 	end if
 end subroutine calcular_raizes
 
