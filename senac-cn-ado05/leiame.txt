@@ -1,0 +1,11 @@
+Atividade 5 de Cálculo Numérico
+Programas desenvolvidos por Alex Shun Yamazaki BCC
+
+Objetivo: Desenvolver programa em FORTRAN capaz de resolver equações de segundo grau, inclusive, quando delta for negativo, retornar raízes imaginárias.
+
+
+Basicamente o programa lê três parâmetros do terminal, ou seja, os coeficientes da equação e calcula o valor de delta e depois aplica a forma de Bháskara para obter a(s) raíze(s) da equação.
+
+
+
+Conclusões: A linguagem FORTRAN possui uma sintaxe relativamente amigável para se trabalhar, tornando apenas a parte de formatação, um pouco mais complicada de se dominar.
