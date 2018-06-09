@@ -1,9 +1,8 @@
-subroutine ranqueador (matriz_entrada_original,dimensao,vetor_resultado)
+program ranqueador
+implicit none
 
 	!dimensoes de entrada, sempre devem ser iguais
-	integer, intent(in) :: dimensao
-    double precision, intent(in) :: matriz_entrada_original(dimensao,dimensao)
-    double precision, intent(out) :: vetor_resultado(dimensao,1)
+	integer :: dimensao
 	integer :: i , j , counter
 	
 	!matriz de entrada  |  matriz 1/dimensao  |  vetor dimensao_1
@@ -13,7 +12,7 @@ subroutine ranqueador (matriz_entrada_original,dimensao,vetor_resultado)
 	double precision :: valor_antigo = 1
 
 	!Recebe a matriz do python ou le de um arquivo
-	! dimensao = 4
+	dimensao = 4
 
 	!Aloca dinamicamente a matriz com as dimensoes da matriz recebida
 	allocate ( matriz_entrada(dimensao,dimensao) )
@@ -21,24 +20,23 @@ subroutine ranqueador (matriz_entrada_original,dimensao,vetor_resultado)
 	allocate ( vetor_pesos(dimensao,1) )
 	allocate ( vetor_pesos_aux(dimensao,1) )
 
-    matriz_entrada = matriz_entrada_original
 
-	! matriz_entrada(1,1) = 0
-	! matriz_entrada(1,2) = 0
-	! matriz_entrada(1,3) = 1.0
-	! matriz_entrada(1,4) = 1.0/2
-	! matriz_entrada(2,1) = 1.0/3
-	! matriz_entrada(2,2) = 0
-	! matriz_entrada(2,3) = 0
-	! matriz_entrada(2,4) = 0
-	! matriz_entrada(3,1) = 1.0/3
-	! matriz_entrada(3,2) = 1.0/2
-	! matriz_entrada(3,3) = 0
-	! matriz_entrada(3,4) = 1.0/2
-	! matriz_entrada(4,1) = 1.0/3
-	! matriz_entrada(4,2) = 1.0/2
-	! matriz_entrada(4,3) = 0
-	! matriz_entrada(4,4) = 0
+	matriz_entrada(1,1) = 0
+	matriz_entrada(1,2) = 0
+	matriz_entrada(1,3) = 1.0
+	matriz_entrada(1,4) = 1.0/2
+	matriz_entrada(2,1) = 1.0/3
+	matriz_entrada(2,2) = 0
+	matriz_entrada(2,3) = 0
+	matriz_entrada(2,4) = 0
+	matriz_entrada(3,1) = 1.0/3
+	matriz_entrada(3,2) = 1.0/2
+	matriz_entrada(3,3) = 0
+	matriz_entrada(3,4) = 1.0/2
+	matriz_entrada(4,1) = 1.0/3
+	matriz_entrada(4,2) = 1.0/2
+	matriz_entrada(4,3) = 0
+	matriz_entrada(4,4) = 0
 
 
 
@@ -90,10 +88,9 @@ subroutine ranqueador (matriz_entrada_original,dimensao,vetor_resultado)
 
 	print *, counter
 
-    vetor_resultado = vetor_pesos_aux
 
 	deallocate( matriz_entrada )
 	deallocate( matriz_s )
 	deallocate( vetor_pesos )
 	deallocate( vetor_pesos_aux )
-end subroutine ranqueador
+end program ranqueador
