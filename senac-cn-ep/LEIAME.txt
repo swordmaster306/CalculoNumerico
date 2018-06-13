@@ -1,0 +1,18 @@
+EXERCICIO PROGRAMA DE CALCULO NUMERICO
+DESENVOLVIDO POR ALEX SHUN YAMAZAKI 
+BACHARELADO EM CIENCIA DA COMPUTACAO
+
+A PASTA SENACCN CONTEM 5(menos este) ARQUIVOS:
+
+interfacePython.py -> le o arquivo matriz_entrada.txt , importa o modulo ranqueador fortran, e utiliza o mesmo para fazer o calculo do rank das paginas
+
+matriz_entrada.txt -> a matriz lida pelo interfacePython.py deve estar aqui, cada elemento deve estar em formato decimal, separados por espacos e cada linha da matriz em uma linha do arquivo
+
+ranqueador_exemplo.f95 -> um programa fortran completo, mostrando o funcionamento do ranqueador com os valores do pdf do enunciado do projeto(do primeiro exemplo)
+
+ranqueador_subrotina.f95 -> subrotina fortran utilizada com o f2py para converter a mesma para um modulo que pode ser importado no python
+
+ranqueador.cpython-36m-x86_64-linux-gnu.so -> modulo gerado pelo f2py utilizando a subrotina citada acima
+
+
+

@@ -50,9 +50,7 @@ subroutine ranquear (matriz_entrada_original,dimensao,vetor_resultado)
 	end do
 
 
-	do i=1,dimensao
-		print *,vetor_pesos_aux(i,1)
-	end do
+
 
 
     vetor_resultado = vetor_pesos_aux
